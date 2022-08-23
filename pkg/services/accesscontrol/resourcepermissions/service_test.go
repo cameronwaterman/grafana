@@ -225,7 +225,7 @@ func setupTestEnvironment(t *testing.T, permissions []accesscontrol.Permission, 
 	mock := accesscontrolmock.New().WithPermissions(permissions)
 	service, err := New(
 		ops, cfg, routing.NewRouteRegister(), license,
-		accesscontrolmock.New().WithPermissions(permissions), mock, sql,
+		mock, mock, sql,
 	)
 	require.NoError(t, err)
 
